@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-app
+  template:
+    metadata:
+      labels:
+        app: react-app
+    spec:
+      imagePullSecrets:
+      - name: registry-secret
+      containers:
+      - name: react-app
+        imagePullPolicy: Never
+        image: <user-name>/react-project:latest 
+
